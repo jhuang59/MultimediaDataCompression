@@ -1,6 +1,7 @@
+
+//==================================//
 //copied from https://cppsecrets.com/users/14739971109711010010097115971101054864103109971051084699111109/C00-Program-for-Huffman-Code.php
 //Add Codeword()
-//*
 #include <iostream>
 #include <vector>
 #include <map>
@@ -83,10 +84,10 @@ void HuffmanCodes(std::vector<char> d, std::vector<int> frequency, int size,map<
     Codeword(minHeap.top(), "",codeword);
     cout<<"Codeword recorded"<<endl;
 }
-//*
+//==================================//
 
+//==================================//
 //cpoied from chatgpt
-//*
 //given vector of bytes, calculate the entropy
 double calculateEntropy(const vector<unsigned char> &pixelData) {
     std::map<unsigned char, double> probabilityDistribution;
@@ -111,7 +112,10 @@ double calculateEntropy(const vector<unsigned char> &pixelData) {
 
     return entropy;
 }
-//*
+//==================================//
+//==================================//
+//Copy right: Jie Huang
+//https://github.com/jhuang59/MultimediaDataCompression
 //custom compare function
 bool compareSymbols(const pair<unsigned char, int>& a, const pair<unsigned char, int>& b) {
     return a.second > b.second;
@@ -189,11 +193,12 @@ int encoder(string FilePath,string outputfile){
     cout<<"Encoded file:"<<outputfile<<endl;
 
 }
-int main()
-{
+//==================================//
+// int main()
+// {
     
-    encoder("text.dat","text.bin");
-    //encoder("audio.dat","audio.bin");
-    //encoder("image.dat","image.bin");
-    //encoder("binary.dat","binary.bin");
-}
+//     encoder("text.dat","text.bin");
+//     //encoder("audio.dat","audio.bin");
+//     //encoder("image.dat","image.bin");
+//     //encoder("binary.dat","binary.bin");
+// }
