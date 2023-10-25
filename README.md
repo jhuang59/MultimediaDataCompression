@@ -7,6 +7,10 @@ Call encoder(string FilePath,string outputfile) in main function.
 FilePath:File to encode 
 
 outputfile:encoded file
+
+util.py:
+
+Import util.py in jupyter notebook, please find information about the usage of functions in util.py
 # Comparison
 
 Binary Arithmetic Coding with mapping functions
