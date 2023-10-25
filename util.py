@@ -62,6 +62,8 @@ def DCT(image:np.array):
             #print(Dctcoef[i][j])
     return Dctcoef           
 
+#generate different quality factor quantization matrix 
+#N: quality factor
 def quantiMatrix(N:float):
     q50=np.array([[16,11,10,16,24,40,51,61],
          [12,12,14,19,26,58,60,55],
@@ -76,7 +78,7 @@ def quantiMatrix(N:float):
     else:
         return (50/N)*q50
 
-
+#PSNR computation for single channel
 def PSNR(data,quantized_data,bits):
     mse=np.mean((data-quantized_data)**2)
     return 10*np.log10((np.max(2**bits-1)**2)/mse)  
@@ -108,31 +110,6 @@ def conv2d(image, kernel):
             result[i][j]=np.sum(region*kernel)
     return result
 
-#image1_1: image array
-#filter_size=N, N by N filter
-#block_size:quantizetion blocks
-#return: processed image
-# def postprocessing(image1_1:np.array,filter_size:int,block_size:int):  
-#     image_size=np.shape(image1_1)
-#     print(image_size)
-#     sigma=0.3*((filter_size-1)*0.5-1)+0.8
-#     kernel=gaussian_filter(filter_size,sigma)
-#     # print("before",image1_1)
-#     result=np.copy(image1_1)
-#     shift=int(block_size/2)-1
-#     output=[]
-#     for h in range(image_size[2]):
-#         for i in range(0,image_size[0],block_size):
-#             for j in range(0,image_size[0],block_size):
-#                 if i+shift+block_size<image_size[0] and j+shift+block_size<image_size[0]:
-#                     result[i+shift:i+shift+block_size,j+shift:j+shift+block_size][h]=conv2d(image1_1[i+shift:i+shift+block_size,j+shift:j+shift+block_size][h],kernel)
-#                     if j==0 and i==0:
-#                         print(result[i+shift:i+shift+block_size,j+shift:j+shift+block_size][h])
-#                         print(np.shape(result[i+shift:i+shift+block_size,j+shift:j+shift+block_size][h]))
-#                     #print(conv2d(image1_1[i+shift:i+shift+block_size,j+shift:j+shift+block_size][h],kernel))
-#                     #output.append(conv2d(image1_1[i:i+block_size,j:j+block_size][h],kernel))
-#                     #print(result[i:i+block_size,j:j+block_size][h],image1_1[i:i+block_size,j:j+block_size][h])
-#     return result
 
 def boundary_filter(img, block_size, filter_width,filter_size):
     output = img.copy()
@@ -264,19 +241,4 @@ def shift_image_zero_shift(image, dx, dy):
     
     return shifted
 
-
-    
-# b=blocking(imageRead("../Original_Images/lena.raw",16,16,1),8)
-# print(b)
-# DCT(b[0],N=8)
-# print(imageRead("../Original_Images/lena.raw",16,16,1))
-#PixelSubtract(imageRead("../Original_Images/lena.raw",16,16,1),20)      
-# kernel=gaussian_filter(7,1)
-# q80=quantiMatrix(80)
-# print(conv2d(q80,kernel))
-# img=imageRead("../Original_Images/camera_man.raw",256,256,1)
-# print(np.shape(postprocessing(img,5,8)[0]))
-# print(np.shape(img))
-# print(np.shape(boundary_filter(img[:,:,0],8,2,2)))
-#print(postprocessing(img,5,8))
 

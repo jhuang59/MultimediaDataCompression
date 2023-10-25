@@ -11,6 +11,7 @@ outputfile:encoded file
 util.py:
 
 Import util.py in jupyter notebook, please find information about the usage of functions in util.py
+There are some example usage in ee669HW4Jie.ipynb
 # Comparison
 
 Binary Arithmetic Coding with mapping functions
