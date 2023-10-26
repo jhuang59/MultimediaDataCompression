@@ -12,6 +12,10 @@ util.py:
 
 Import util.py in jupyter notebook, please find information about the usage of functions in util.py
 There are some example usage in ee669HW4Jie.ipynb
+
+class LioydMax():
+
+Lloyd-Max scalar quantizer is in /VectorQuantization/ee669HW3Jie.ipynb. Please find information about the usage in this notebook. There are some example usage inside as well.
 # Comparison
 
 Binary Arithmetic Coding with mapping functions
